@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baskect Ball Score Board</title>
+    <link rel="stylesheet" href="./assests/css/global.css">
+    <link rel="stylesheet" href="./assests/css/index.css">
+</head>
+
+<body>
+    <div class="overall">
+        <section>
+            <header>
+                <nav class="extra">
+                    <div>
+                        <button onclick="newGame()" id="extraButton1">New Game</button>
+                        <h2 id="extraButton"> </h2>
+                    </div>
+                </nav>
+            </header>
+        </section>
+        <div class="main_container">
+            <div id="classone">
+                <h1>Home</h1>
+                <div class="innerdiv">
+                    <span class="Readings" id="home">0</span>
+                </div>
+                <div class="incrementvalues">
+                    <div class="units"><span onclick="addOne()">+1</span></div>
+                    <div class="units" on><span onclick="addTwo()">+2</span></div>
+                    <div class="units"><span onclick="addThree()">+3</span></div>
+                </div>
+            </div>
+            <div id="classtwo">
+                <h1>Guest</h1>
+                <div class="innerdiv">
+                    <span class="Readings" id="guest">0</span>
+                </div>
+                <div class="incrementvalues">
+                    <div class="units"><span onclick="addOneOne() ">+1</span></div>
+                    <div class="units"><span onclick="addTwoTwo() ">+2</span></div>
+                    <div class="units"><span onclick="addThreeThree()">+3</span></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+    <script src="./app.js"></script>
+</body>
+
+</html>
