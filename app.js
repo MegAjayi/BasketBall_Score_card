@@ -1,51 +1,49 @@
 let homeEl = document.getElementById("home");
 let guetEl = document.getElementById("guest");
-let count = 0;
+let winnerEl = document.getElementById("displayWinner");
+// let allActionButton = document.querySelector(".units");
+
+let countHome = 0;
 let countGuest = 0;
 
-function addOne() {
-  count += 1;
-  homeEl.textContent = count;
+function addScoreToHome(num) {
+  countHome += num;
+  homeEl.textContent = countHome;
 }
 
-function addTwo() {
-  count += 2;
-  homeEl.textContent = count;
-}
-
-function addThree() {
-  count += 3;
-  homeEl.textContent = count;
-  //   guetEl.textContent = count;
-}
-
-function addOneOne() {
-  countGuest += 1;
-  guetEl.textContent = countGuest;
-}
-
-function addTwoTwo() {
-  countGuest += 2;
-  guetEl.textContent = countGuest;
-}
-
-function addThreeThree() {
-  countGuest += 3;
+function addScoreToGuest(num) {
+  countGuest += num;
   guetEl.textContent = countGuest;
 }
 
 function newGame() {
-  if (count > countGuest) {
-    document.getElementById("extraButton").textContent =
-      "The winner is Home with a score of: " + count;
-  } else if (countGuest < count) {
-    document.getElementById("extraButton").textContent =
-      "The winner is Home with a score of: " + countGuest;
-  } else {
-    document.getElementById("extraButton").textContent =
-      "Please increase the score on the score board to get a valid winner";
-  }
-
-  count = 0;
+  countHome = 0;
   countGuest = 0;
+  homeEl.textContent = countHome;
+  guetEl.textContent = countGuest;
+  winnerEl.textContent = "";
+  enableButton();
+}
+
+function endGame() {
+  if (countHome > countGuest) {
+    winnerEl.textContent = "Home Team Wins";
+  } else if (countHome < countGuest) {
+    winnerEl.textContent = "Guest Team Wins";
+  } else {
+    winnerEl.textContent = "Its A Tie";
+  }
+  disableButton();
+}
+
+function disableButton() {
+  document.querySelectorAll(".units").forEach((btn) => (btn.disabled = true));
+  // const buttons = document.querySelectorAll(".units");
+  // buttons.disabled = true;
+}
+
+function enableButton() {
+  document.querySelectorAll(".units").forEach((btn) => (btn.disabled = false));
+  // const buttons = document.querySelectorAll(".units");
+  // buttons.disabled = false;
 }
